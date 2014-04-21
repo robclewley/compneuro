@@ -1,0 +1,89 @@
+common_lib.py
+phaseplane.py
+IF_net.py
+test_pcw.py
+
+nonlinear.py
+
+Chapter 2:
+NR_functions.py (2.3)
+spike_rate.py (2.3)
+WC_net.py (2.3 and 6.4)
+pcw_AP.py (2.5)
+pcw_gsyn.py
+
+Chapter 3:
+linear_ODE.py
+linear_ODE_2D.py
+cones_horiz.py
+
+
+Chapter 4:
+linear_net.py (4.3)
+delay_ODE.py (4.4)
+
+
+Chapter 5:
+euler.py
+gauss_elim.py
+
+
+Ch6_4.py
+Ch6_5.py
+Ch6_5_animate.py
+Ch6_6.py
+
+Chapter 7:
+WCcortexOsc.py
+WCcortexSTM.py
+WCcortexWaves.py
+WCstability.py
+# WC_2D_needs_finishing.py
+
+Chapter 8:
+vdp_explore.py
+
+Ch9_HH.py
+Ch9_HH_PRC.py
+Ch9_HH_compare.py
+Ch9_HH_human.py
+Ch9_HH_humanPRC.py
+Ch9_HH_hysteresis.py
+Ch9_HH_myversion.py
+Ch9_HH_noise.py
+Ch9_HH_red.py
+Ch9_HH_subres.py
+Ch9_stoch_res_project.py
+
+Ch10_1.py
+Ch10_2.py
+Ch10_3.py
+Ch10_3_model.py
+Ch10_4.py
+Ch10_4_model.py
+Ch10_model.py
+
+Chapter 12:
+Ch12_PIR.py
+Ch12_phase.py
+alpha_syn.py
+
+Ch13_1.py
+Ch13_2.py
+
+
+Izhikevich Ch 10:
+Entrain.py
+Entrain_teacher_copy.py
+
+Hopf_delay.py
+Hopf_delay_net.py
+
+Proj1.py
+Proj1_B.py
+Project2.py
+
+
+hhNeuron.py
+hwwk8_RC.py
+

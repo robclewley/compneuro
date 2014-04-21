@@ -1,0 +1,105 @@
+In [1]: %run Ch9_HH
+
+In [2]: pts
+Out[2]:
+Pointset <no name> (parameterized)
+Independent variable:
+t:  [ 0.    0.03, ...,   99.90568067  100.        ]
+Coordinates:
+h:  [ 1.          0.99997799, ...,  0.99249769  0.99244578]
+m:  [ 0.          0.00240724, ...,  0.02857164  0.02872323]
+n:  [ 0.          0.00048106, ...,  0.05953078  0.05977829]
+v:  [-70.         -69.97903007, ..., -63.65348633 -63.62591765]
+Labels by index:  268: {Event:thresh_ev: {keys=t}},
+                  336: {Event:min_ev: {keys=t}},
+                  870: {Event:thresh_ev: {keys=t}},
+                  939: {Event:min_ev: {keys=t}}
+
+In [3]: traj.getEventTimes('min_ev')
+Out[3]: [26.073268181687283, 68.231241897663608]
+
+In [4]: t0, t1 = _
+
+In [5]: t0
+Out[5]: 26.073268181687283
+
+In [6]: ix0 = pts.find(t0,0)
+
+In [7]: ix1 = pts.find(t1,1)
+
+In [8]: ix0, ix1
+Out[8]: (336, 939)
+
+In [9]: per = pts[ix0:ix1]
+
+In [10]: plot(per['t'],per['v'],'k-',linewidth=3)
+Out[10]: [<matplotlib.lines.Line2D object at 0x6ecc870>]
+
+In [11]: per
+Out[11]:
+Pointset <no name> (parameterized)
+Independent variable:
+t:  [ 26.07326818  26.09480739, ...,  68.19723796  68.22431831]
+Coordinates:
+h:  [ 0.59218769  0.60743877, ...,  0.56689927  0.58716025]
+m:  [  6.04141320e-05   4.44093542e-05, ...,   1.04533824e-04   6.71766594e-05]
+n:  [ 0.35418991  0.34390398, ...,  0.37105724  0.3575612 ]
+v:  [-97.27746607 -97.27331802, ..., -97.26571131 -97.27700752]
+Labels by index:  0: {Event:min_ev: {keys=t}},
+                  534: {Event:thresh_ev: {keys=t}}
+
+In [12]: figure()
+Out[12]: <matplotlib.figure.Figure object at 0x6ebd270>
+
+#### NOTE: next line offsets times in per from starting at t=26
+####   to t = 0
+
+In [13]: per['t'] = per['t'] - per['t'][0]
+
+In [14]: plot(per['t'], per['m'], 'g')
+Out[14]: [<matplotlib.lines.Line2D object at 0x6eccb70>]
+
+In [15]: plot(per['t'], per['n'], 'r')
+Out[15]: [<matplotlib.lines.Line2D object at 0x7507b70>]
+
+In [16]: plot(per['t'], per['h'], 'm')
+Out[16]: [<matplotlib.lines.Line2D object at 0x6ebded0>]
+
+In [17]: def tau_m(V):
+   ....:         return 1/(ma(V)+mb(V))
+   ....:
+
+In [18]: tau_m(-10)
+Out[18]: 0.069785430211398922
+
+In [19]: tau_m(10)
+Out[19]: 0.048805585721687889
+
+In [20]: tau_m(50)
+Out[20]: 0.030048070968154119
+
+In [21]: vs = linspace(-80,50)
+
+In [22]: tau_ms = [tau_m(v) for v in vs]
+
+In [23]: figure()
+Out[23]: <matplotlib.figure.Figure object at 0x7721e30>
+
+In [24]: plot(vs, tau_ms)
+Out[24]: [<matplotlib.lines.Line2D object at 0x7727f90>]
+
+In [25]: HH.pars
+Out[25]:
+{'C': 1.0,
+ 'Iapp': 0.40000000000000002,
+ 'gk': 80.0,
+ 'gl': 0.10000000000000001,
+ 'gna': 100.0,
+ 'vk': -100.0,
+ 'vl': -67.0,
+ 'vna': 50.0}
+
+In [26]: gl = HH.pars['gl']
+
+In [27]: gl
+Out[27]: 0.10000000000000001
